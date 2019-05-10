@@ -1,147 +1,97 @@
-<#--
-
-    Solo - A small and beautiful blogging system written in Java.
-    Copyright (c) 2010-2018, b3log.org & hacpai.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
--->
 <div id="tabPreference" class="sub-tabs fn-clear">
     <ul>
         <li>
             <div id="tabPreference_config">
-                <a class="tab-current" href="#tools/preference/config">${configSettingsLabel}</a>
-            </div>
-        </li>
-        <li>
-            <div id="tabPreference_skins">
-                <a href="#tools/preference/skins">${skinLabel}</a>
+                <a class="tab-current" href="#tools/preference/config">信息配置</a>
             </div>
         </li>
         <li>
             <div id="tabPreference_signs">
-                <a href="#tools/preference/signs">${signLabel}</a>
+                <a href="#tools/preference/signs">签名档</a>
             </div>
         </li>
         <li>
             <div id="tabPreference_setting">
-                <a href="#tools/preference/setting">${paramSettingsLabel}</a>
-            </div>
-        </li>
-        <li>
-            <div id="tabPreference_oss">
-                <a href="#toos/preference/oss">${ossServerLabel}</a>
-            </div>
-        </li>
-        <li>
-            <div id="tabPreference_solo">
-                <a href="#tools/preference/solo">B3log</a>
+                <a href="#tools/preference/setting">参数设置</a>
             </div>
         </li>
     </ul>
 </div>
 <div id="tabPreferencePanel" class="sub-tabs-main">
     <div id="tabPreferencePanel_config" class="form">
-        <button onclick="admin.preference.update()" class="right">${updateLabel}</button>
         <div class="clear"></div>
-        <label for="blogTitle">${blogTitle1Label}</label>
+        <label for="blogTitle">博客标题：</label>
         <input id="blogTitle" type="text"/>
-        <label for="blogSubtitle">${blogSubtitle1Label}</label>
+        <label for="blogSubtitle">博客子标题：</label>
         <input id="blogSubtitle" type="text"/>
-        <label for="blogHost">${blogHost1Label}</label>
+        <label for="blogHost">博客地址：</label>
         <input id="blogHost" type="text" value="${servePath}" readonly="true"/>
-        <label for="metaKeywords">${metaKeywords1Label}</label>
-        <input id="metaKeywords" type="text"/>
-        <label for="metaDescription">${metaDescription1Label}</label>
-        <input id="metaDescription" type="text"/>
-        <label for="htmlHead">${htmlhead1Label}</label>
-        <textarea rows="6" id="htmlHead"></textarea>
-        <label for="noticeBoard">${noticeBoard1Label}</label>
+        <label for="noticeBoard">公告栏：</label>
         <textarea rows="6" id="noticeBoard"></textarea>
-        <label for="footerContent">${footerContent1Label}</label>
+        <label for="footerContent">页脚：</label>
         <textarea rows="2" id="footerContent"></textarea><br><br>
-        <button onclick="admin.preference.update()" class="right">${updateLabel}</button>
+        <button onclick="admin.preference.update()" class="right">更新</button>
         <div class="clear"></div>
     </div>
-    <div id="tabPreferencePanel_solo" class="none form">
-        <label for="keyOfSolo">${keyOfSolo1Label}</label>
-        <input id="keyOfSolo" class="normalInput" type="text" readonly="readonly"/><br><br>
-        <a href="https://hacpai.com/article/1457158841475" target="_blank">${APILabel}</a>
-    </div>
+
     <div id="tabPreferencePanel_setting" class="none form">
-        <button class="right" onclick="admin.preference.update()">${updateLabel}</button>
         <div class="clear"></div>
-        <label for="localeString">${localeString1Label}</label>
+        <label for="localeString">语言：</label>
         <select id="localeString">
             <option value="zh_CN">简体中文</option>
-            <option value="en_US">Englisth(US)</option>
         </select>
-        <label for="timeZoneId">${timeZoneId1Label}</label>
+        <label for="timeZoneId">时区：</label>
         <select id="timeZoneId">
-            ${timeZoneIdOptions}
+        ${timeZoneIdOptions}
         </select>
-        <label for="articleListDisplay">${articleListDisplay1Label}</label>
+        <label for="articleListDisplay">文章列表显示方式：</label>
         <select id="articleListDisplay">
-            <option value="titleOnly">${titleOnlyLabel}</option>
-            <option value="titleAndAbstract">${titleAndAbstractLabel}</option>
-            <option value="titleAndContent">${titleAndContentLabel}</option>
+            <option value="titleOnly">仅标题</option>
+            <option value="titleAndAbstract">标题+摘要</option>
+            <option value="titleAndContent">标题+正文</option>
         </select>
-        <label for="mostUsedTagDisplayCount">${indexTagDisplayCnt1Label}</label>
+        <label for="mostUsedTagDisplayCount">首页标签显示数：</label>
         <input id="mostUsedTagDisplayCount" class="normalInput" type="text"/>
-        <label for="recentCommentDisplayCount">${indexRecentCommentDisplayCnt1Label}</label>
+        <label for="recentCommentDisplayCount">最新评论显示数目：</label>
         <input id="recentCommentDisplayCount" class="normalInput" type="text"/>
-        <label for="mostCommentArticleDisplayCount">${indexMostCommentArticleDisplayCnt1Label}</label>
+        <label for="mostCommentArticleDisplayCount">评论最多文章显示数目：</label>
         <input id="mostCommentArticleDisplayCount" class="normalInput" type="text"/>
-        <label for="mostViewArticleDisplayCount">${indexMostViewArticleDisplayCnt1Label}</label>
+        <label for="mostViewArticleDisplayCount">访问最多文章显示数目：</label>
         <input id="mostViewArticleDisplayCount" class="normalInput" type="text"/>
-        <label for="articleListDisplayCount">${pageSize1Label}</label>
+        <label for="articleListDisplayCount">分页每页显示文章数：</label>
         <input id="articleListDisplayCount" class="normalInput" type="text"/>
-        <label for="articleListPaginationWindowSize">${windowSize1Label}</label>
+        <label for="articleListPaginationWindowSize">分页页码最大宽度：</label>
         <input id="articleListPaginationWindowSize" class="normalInput" type="text"/>
-        <label for="randomArticlesDisplayCount">${randomArticlesDisplayCnt1Label}</label>
+        <label for="randomArticlesDisplayCount">随机阅读显示数目：</label>
         <input id="randomArticlesDisplayCount" class="normalInput" type="text"/>
-        <label for="relevantArticlesDisplayCount">${relevantArticlesDisplayCnt1Label}</label>
+        <label for="relevantArticlesDisplayCount">相关阅读显示数目：</label>
         <input id="relevantArticlesDisplayCount" class="normalInput" type="text"/>
-        <label for="externalRelevantArticlesDisplayCount">${externalRelevantArticlesDisplayCnt1Label}</label>
+        <label for="externalRelevantArticlesDisplayCount">站外相关阅读显示数目：</label>
         <input id="externalRelevantArticlesDisplayCount" class="normalInput" type="text"/>
-        <label for="enableArticleUpdateHint">${enableArticleUpdateHint1Label}</label>
+        <label for="enableArticleUpdateHint">更新提示：</label>
         <input id="enableArticleUpdateHint" type="checkbox" class="normalInput"/>
-        <label for="allowVisitDraftViaPermalink">${allowVisitDraftViaPermalink1Label}</label>
+        <label for="allowVisitDraftViaPermalink">链接访问草稿：</label>
         <input id="allowVisitDraftViaPermalink" type="checkbox" class="normalInput"/>
-        <label for="commentable">${allowComment1Label}</label>
+        <label for="commentable">允许评论：</label>
         <input id="commentable" type="checkbox" class="normalInput"/>
-        <label for="allowRegister">${allowRegister1Label}</label>
+        <label for="allowRegister">允许注册：</label>
         <input id="allowRegister" type="checkbox" class="normalInput"/>
-        <label for="feedOutputMode">${feedOutputModel1Label}</label>
+        <label for="feedOutputMode">订阅输出模式：</label>
         <select id="feedOutputMode">
-            <option value="abstract">${abstractLabel}</option>
-            <option value="fullContent">${fullContentLabel}</option>
+            <option value="abstract">摘要</option>
+            <option value="fullContent">全文</option>
         </select>
-        <label for="feedOutputCnt">${feedOutputCnt1Label}</label>
-        <input id="feedOutputCnt" class="normalInput" type="text"/>
-        <label for="customVars">${customVars1Label}</label>
-        <input id="customVars" class="normalInput" type="text"/><br/><br/>
-        <button class="right" onclick="admin.preference.update()">${updateLabel}</button>
+        <label for="feedOutputCnt">订阅输出文章数：</label>
+        <input id="feedOutputCnt" class="normalInput" type="text"/><br/><br/>
+        <button class="right" onclick="admin.preference.update()">更新</button>
         <div class="clear"></div>
     </div>
+
     <div id="tabPreferencePanel_skins" class="none form">
         <table class="form" width="100%" cellpadding="0" cellspacing="0">
             <tbody>
             <tr>
                 <td>
-                    <a href="https://github.com/b3log/solo/issues/12449" target="_blank">新皮肤推荐</a> •
-                    <a href="https://hacpai.com/article/1493814851007" target="_blank">皮肤开发指南</a>
                     <button style="float: right" onclick="admin.preference.update()">${updateLabel}</button>
                 </td>
             </tr>
@@ -150,47 +100,21 @@
                     <div id="skinMain"></div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <a href="https://github.com/b3log/solo/issues/12449" target="_blank">新皮肤推荐</a> •
-                    <a href="https://hacpai.com/article/1493814851007" target="_blank">皮肤开发指南</a>
-                    <button style="float: right" onclick="admin.preference.update()">${updateLabel}</button>
-                </td>
-            </tr>
             </tbody>
         </table>
     </div>
+
     <div id="tabPreferencePanel_signs" class="none form">
-        <button onclick="admin.preference.update()" class="right">${updateLabel}</button>
         <div class="clear"></div>
-        <button id="preferenceSignButton1">${signLabel}1</button>
+        <button id="preferenceSignButton1">签名档1</button>
         <textarea rows="8" id="preferenceSign1"></textarea>
-        <button id="preferenceSignButton2">${signLabel}2</button>
+        <button id="preferenceSignButton2">签名档2</button>
         <textarea rows="8" id="preferenceSign2"></textarea>
-        <button id="preferenceSignButton3">${signLabel}3</button>
+        <button id="preferenceSignButton3">签名档3</button>
         <textarea rows="8" id="preferenceSign3"></textarea><br><br>
-        <button onclick="admin.preference.update()" class="right">${updateLabel}</button>
+        <button onclick="admin.preference.update()" class="right">更新</button>
         <div class="clear"></div>
     </div>
-    <div id="tabPreferencePanel_oss" class="none form">
-         <span class="right">
-            <a href="https://hacpai.com/article/1442418791213" target="_blank">${howConfigLabel}</a>
-            &nbsp;
-            <button onclick="admin.preference.updateOss()">${updateLabel}</button>
-        </span>
-        ${qiniuOssLabel}
-            <input name="ossServer" id= "qiniuOss" type="radio" value="qiniu" onclick="admin.preference.ossServerChange()"/>
-        ${aliyunOssLabel}
-        <input name="ossServer" id= "aliyunOss" type="radio" value="aliyun" onclick="admin.preference.ossServerChange()"/>
-        <div class="clear"></div>
-        <label for="osSAccessKey">${accessKey1Label}</label>
-        <input id="ossAccessKey" type="text"/>
-        <label for="ossSecretKey">${secretKey1Label}</label>
-        <input id="ossSecretKey" type="text"/>
-        <label for="ossDomain">${domain1Label}</label>
-        <input id="ossDomain" type="text"/>
-        <label for="ossBucket">${bucket1Label}</label>
-        <input id="ossBucket" type="text"/>
-    </div>
+
 </div>
 ${plugins}

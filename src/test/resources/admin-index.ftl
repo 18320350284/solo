@@ -1,22 +1,3 @@
-<#--
-
-    Solo - A small and beautiful blogging system written in Java.
-    Copyright (c) 2010-2018, b3log.org & hacpai.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
--->
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +9,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta http-equiv="Window-target" content="_top">
         <meta name="robots" content="none" />
-        <title>${adminConsoleLabel} - ${blogTitle}</title>
+        <title>${blogTitle} - 后台管理</title>
         <link type="text/css" rel="stylesheet" href="${staticServePath}/css/default-base${miniPostfix}.css?${staticResourceVersion}" />
         <link type="text/css" rel="stylesheet" href="${staticServePath}/css/default-admin${miniPostfix}.css?${staticResourceVersion}" />
         <link type="text/css" rel="stylesheet" href="${staticServePath}/js/lib/CodeMirrorEditor/codemirror.min.css?${staticResourceVersion}" />
@@ -37,21 +18,20 @@
         <link rel="manifest" href="${servePath}/manifest.json">
     </head>
     <body onhashchange="admin.setCurByHash();">
-        <div class="tip"><span id="loadMsg">${loadingLabel}</span></div>
         <div class="tip tip-msg"><span id="tipMsg"></span></div>
         <div id="allPanel">
             <div id="top">
                 <a href="${servePath}" target="_blank" class="hover">
-                    Solo
+                    ${blogTitle}
                 </a>
                 <span class="icon-unordered-list top__menu none"
                       onclick="admin.toggleMenu()"></span>
-                <span class="right"> 
+                <span class="right">
                     <a href="${servePath}" title='${indexLabel}'>
                         <div class="avatar" style="background-image: url(${gravatar})"></div>
                         ${userName}
                     </a>
-                    <a href='javascript:admin.logout();' title='${logoutLabel}'>${logoutLabel}</a>
+                    <a href='javascript:admin.logout();' title='${logoutLabel}'>注销</a>
                 </span>
             </div>
             <div id="tabs">
@@ -59,30 +39,30 @@
                     <li>
                         <div id="tabs_main">
                             <a href="#main">
-                                <span class="icon-refresh"></span> ${adminIndexLabel}
+                                <span class="icon-refresh"></span> 后台首页
                             </a>
                         </div>
                     </li>
                     <li>
                         <div id="tabArticleTitle" class="tab-current" onclick="admin.collapseNav(this)">
                             <span class="icon-article"></span>
-                            ${articleLabel}
+                            文章管理
                             <span class="icon-chevron-up right"></span>
                         </div>
                         <ul id="tabArticleMgt">
                             <li>
                                 <div id="tabs_article">
-                                    <a href="#article/article" onclick="admin.article.prePost()">${postArticleLabel}</a>
+                                    <a href="#article/article" onclick="admin.article.prePost()">发布文章</a>
                                 </div>
                             </li>
                             <li>
                                 <div id="tabs_article-list">
-                                    <a href="#article/article-list">${articleListLabel}</a>
+                                    <a href="#article/article-list">文章管理</a>
                                 </div>
                             </li>
                             <li>
                                 <div id="tabs_draft-list">
-                                    <a href="#article/draft-list">${draftListLabel}</a>
+                                    <a href="#article/draft-list">草稿夹</a>
                                 </div>
                             </li>
                         </ul>
@@ -90,58 +70,38 @@
                     <li>
                         <div id="tabs_comment-list">
                             <a href="#comment-list">
-                                <span class="icon-cmts"></span> ${commentListLabel}
+                                <span class="icon-cmts"></span> 评论管理
                             </a>
                         </div>
                     </li>
                     <li>
                         <div id="tabToolsTitle" onclick="admin.collapseNav(this)">
                             <span class="icon-setting"></span>
-                            ${ToolLabel}
+                            其它管理
                             <span class="icon-chevron-down right"></span>
                         </div>
                         <ul class="none" id="tabTools">
                             <li>
                                 <div id="tabs_preference">
-                                    <a href="#tools/preference">${preferenceLabel}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="tabs_category-list">
-                                    <a href="#tools/category-list">${categoryListLabel}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="tabs_page-list">
-                                    <a href="#tools/page-list">${navMgmtLabel}</a>
+                                    <a href="#tools/preference">偏好设定</a>
                                 </div>
                             </li>
                             <li>
                                 <div id="tabs_link-list">
-                                    <a href="#tools/link-list">${linkManagementLabel}</a>
+                                    <a href="#tools/link-list">友情链接</a>
                                 </div>
                             </li>
                             <li>
                                 <div id="tabs_user-list">
-                                    <a href="#tools/user-list">${userManageLabel}</a>
+                                    <a href="#tools/user-list">用户管理</a>
                                 </div>
                             </li>
-                            <li>
-                                <div id="tabs_plugin-list">
-                                    <a href="#tools/plugin-list">${pluginMgmtLabel}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="tabs_others">
-                                    <a href="#tools/others">${othersLabel}</a>
-                                </div>
-                            </li>  
                         </ul>
                     </li>
                     <li>
                         <div id="tabs_about">
                             <a href="#about">
-                                <span class="icon-info"></span> ${aboutLabel}
+                                <span class="icon-info"></span> 关于
                             </a>
                         </div>
                     </li>
@@ -165,7 +125,7 @@
             </div>
             <div class="clear"></div>
             <div class="footer">
-                Powered by <a href="https://b3log.org" target="_blank">B3log 开源</a> • <a href="https://hacpai.com/tag/solo" target="_blank">Solo</a> ${version}
+                个人博客资源管理系统后台
             </div>
         </div>
         <script src="${staticServePath}/js/lib/compress/admin-lib.min.js"></script>

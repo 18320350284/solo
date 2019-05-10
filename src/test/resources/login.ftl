@@ -1,48 +1,25 @@
-<#--
-
-    Solo - A small and beautiful blogging system written in Java.
-    Copyright (c) 2010-2018, b3log.org & hacpai.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
--->
 <#include "macro-common-page.ftl">
 
 <@commonPage "${welcomeToSoloLabel}!">
-<h2>
-${loginLabel}
-</h2>
+<h2>登录</h2>
 <div id="github">
-    <div class="github__icon"
-        onclick="window.location.href = '${servePath}/oauth/github/redirect';$('#github').addClass('github--loading')">
-        <img src="${staticServePath}/images/github-init.gif"/>
-    </div>
-    <button class="hover" onclick="window.location.href = '${servePath}/oauth/github/redirect';$('#github').addClass('github--loading')">${useGitHubAccountLoginLabel}</button>
     <br>
-    <span onclick="$('#github').hide();$('.form').show()">${useLocalAccountLabel}</span>
+    <button class="hover" onclick="$('#github').hide();$('.form').show()">使用本地账号</button>
+    <br>
+    <a href="${servePath}/register"><span>没有账号？去注册</span></a>
 </div>
 
 <div class="form none">
     <label for="userEmail">
-    ${userLabel}
+    用户名（邮箱）
     </label>
     <input id="userEmail" tabindex="1" />
     <label for="userPassword">
-    ${userPasswordLabel} <a href="${servePath}/forgot">(${forgotLabel})</a>
+    密码
     </label>
     <input type="password" id="userPassword" tabindex="2" />
-    <button onclick='login();'>${loginLabel}</button>
+    <button onclick='login();'>登录</button>
+    <a href="${servePath}/register"><span>去注册</span></a>
     <span id="tip">${resetMsg}</span>
 </div>
 <script type="text/javascript" src="${staticServePath}/js/lib/jquery/jquery.min.js" charset="utf-8"></script>
